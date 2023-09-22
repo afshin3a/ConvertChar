@@ -1,0 +1,41 @@
+Function ConvertText(FarsiText As String) As String
+    Dim i As Integer
+    Dim Result As String
+    Dim Char As String
+    
+    Result = ""
+    
+    For i = 1 To Len(FarsiText)
+        Char = Mid(FarsiText, i, 1)
+        Select Case Char
+            Case ChrW(&H660), ChrW(&H6F0) ' Unicode for "0"
+                Result = Result & ChrW(&H30) ' Replace with desired Unicode value
+            Case ChrW(&H661), ChrW(&H6F1) ' Unicode for "1"
+                Result = Result & ChrW(&H31) ' Replace with desired Unicode value
+            Case ChrW(&H662), ChrW(&H6F2) ' Unicode for "2"
+                Result = Result & ChrW(&H32) ' Replace with desired Unicode value
+            Case ChrW(&H663), ChrW(&H6F3) ' Unicode for "3"
+                Result = Result & ChrW(&H33) ' Replace with desired Unicode value
+            Case ChrW(&H664), ChrW(&H6F4) ' Unicode for "4"
+                Result = Result & ChrW(&H34) ' Replace with desired Unicode value
+            Case ChrW(&H665), ChrW(&H6F5) ' Unicode for "5"
+                Result = Result & ChrW(&H35) ' Replace with desired Unicode value
+            Case ChrW(&H666), ChrW(&H6F6) ' Unicode for "6"
+                Result = Result & ChrW(&H36) ' Replace with desired Unicode value
+            Case ChrW(&H667), ChrW(&H6F7) ' Unicode for "7"
+                Result = Result & ChrW(&H37) ' Replace with desired Unicode value
+            Case ChrW(&H668), ChrW(&H6F8) ' Unicode for "8"
+                Result = Result & ChrW(&H38) ' Replace with desired Unicode value
+            Case ChrW(&H669), ChrW(&H6F9) ' Unicode for "9"
+                Result = Result & ChrW(&H39) ' Replace with desired Unicode value
+            Case ChrW(&H6CC), ChrW(&H649) ' Unicode for "í"
+                Result = Result & ChrW(&H64A) ' Replace with desired Unicode value
+            Case ChrW(&H6A9) ' Unicode for "˜"
+                Result = Result & ChrW(&H643) ' Replace with desired Unicode value
+            Case Else
+                Result = Result & Char
+        End Select
+    Next i
+    
+    ConvertText = Result
+End Function
